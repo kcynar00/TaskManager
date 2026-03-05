@@ -29,6 +29,33 @@ public class User {
         cascade=CascadeType.ALL,
         orphanRemoval=true
     )
+    @Column(nullable = false)
+    private String role;
+    @Column(nullable = false)
+    private String password;
+    
+    public User() {
+    }
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+    
+
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
     private List<Task> tasks = new ArrayList <>();
 
     public void addTask(Task task){
